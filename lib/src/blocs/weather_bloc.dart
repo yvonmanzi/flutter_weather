@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutterweather/src/data/models/weather_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,6 +18,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       yield WeatherLoading();
       try {
         Weather weather = await repo.getWeather(city: event.cityName);
+        debugPrint('${weather.temp}');
         yield WeatherLoaded(weather: weather);
       } catch (error) {
         yield WeatherFailedToLoad(error: error.toString());
