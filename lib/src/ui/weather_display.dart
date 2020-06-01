@@ -29,7 +29,7 @@ class WeatherPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: <Widget>[Text(temp as String)],
+        children: <Widget>[Text(temp.toString())],
       ),
     );
   }
