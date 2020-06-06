@@ -22,7 +22,7 @@ class App extends StatelessWidget {
         if (state is WeatherInitialState)
           return searchPage.WeatherSearch(title: weatherSearchTitle);
         if (state is WeatherLoaded)
-          return WeatherDisplay(temp: state.weather.temp);
+          return WeatherDisplay(weather: state.weather);
         if (state is WeatherFailedToLoad)
           return ErrorPage(
             title: state.error.toString(),

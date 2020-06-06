@@ -7,7 +7,7 @@ import '../blocs/blocs.dart' as blocs;
 class WeatherSearch extends StatefulWidget {
   final String title;
 
-  WeatherSearch({this.title});
+  WeatherSearch({@required this.title});
 
   @override
   _WeatherSearchState createState() => _WeatherSearchState();
