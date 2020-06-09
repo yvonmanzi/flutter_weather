@@ -19,21 +19,16 @@ class WeatherDisplay extends StatelessWidget {
             ),
         '/weather_settings': (context) => WeatherSettings(),
       },
-      theme: ThemeData(
-          primaryColor: Colors.indigo,
-          secondaryHeaderColor: Colors.blue,
-          textTheme: TextTheme(
-              overline: TextStyle(
-            color: Colors.white,
-          ))),
+      theme: ThemeData(primarySwatch: Colors.indigo),
       title: title,
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xFF536DFE),
           title: Text(title),
           actions: <Widget>[WeatherDisplayAppBarActions()],
         ),
         body: WeatherPage(weather: weather),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color(0xFF303F9F),
       ),
     );
   }
@@ -100,15 +95,14 @@ class RowOne extends StatelessWidget {
           children: <Widget>[
             Text(
               weather.location,
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline4
+                  .apply(color: Colors.white),
             ),
             Text(
               'Updated: ${weather.lastUpdated.toString()}',
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: TextStyle(),
             ),
           ],
         ),
@@ -131,24 +125,18 @@ class RowTwo extends StatelessWidget {
         Icon(Icons.cloud),
         Text(
           '${weather.temp}',
-          style: TextStyle(
-            color: Colors.white,
-          ),
+          style: TextStyle(),
         ),
         Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
               '${weather.maxTemp.toString()}',
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: TextStyle(),
             ),
             Text(
               '${weather.minTemp.toString()}',
-              style: TextStyle(
-                color: Colors.white,
-              ),
+              style: TextStyle(),
             ),
           ],
         )
@@ -167,11 +155,7 @@ class RowThree extends StatelessWidget {
     return Center(
       child: Text(
         '${weather.formattedCondition.toString()}',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 15.0,
-          fontWeight: FontWeight.bold,
-        ),
+        style: TextStyle(),
       ),
     );
   }
